@@ -3,7 +3,7 @@ import cvxpy as cp
 # Number of people and number of slots
 num_slots = 4
 num_people = 5
-availability = [0,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1]
+availability = [0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1]
 
 # Create the variables
 svars = [cp.Variable(boolean = True) for i in range(num_slots)]
