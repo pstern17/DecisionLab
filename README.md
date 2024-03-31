@@ -6,5 +6,5 @@ Numerous organizations engage in suboptimal scheduling and task assignment for t
 
 
 
-# LateX notes for our models: 
+# LaTeX notes for our models: 
 https://www.overleaf.com/8866859754wrtrchgbmkpq#023867
