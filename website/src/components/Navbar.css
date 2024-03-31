@@ -1,0 +1,16 @@
+.navbar{
+    background-color: rgb(168, 203, 255);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    padding: 5px;
+
+}
+
+.tabs{
+    width: 200px;
+    
+
+
+}
