@@ -4,7 +4,7 @@ import cvxpy as cp
 num_people = 2
 num_slots = 3
 availability = [[1,0,1], [1,1,1]]
-preference = [[5,0,3], [5,2,1]]
+preference = [[5,0,1], [5,1,1]]
 max_meetings = 2
 pref_rate = 1
 attendance_rate = 1
@@ -27,7 +27,9 @@ for j in range(num_slots):
     attendance = attendance + availability[i][j] * xvars[i][j]
 
 #Additional Meeting Penalty
-penalty = 0
+penalty = 0 
+for j in range(num_slots):
+    penalty = penalty + svars[j]*10
 
 objective = cp.Maximize(pref_rate * pref + attendance_rate * attendance)
 
@@ -51,6 +53,12 @@ for j in range(num_slots):
 for i in range(num_people):
     for j in range(num_slots):
         constraints.append(xvars[i][j] <= availability[i][j])
+
+
+#Assign each person to at most one meeting
+for i in range(num_people):
+    for j in range(num_slots):
+        constraints.append(xvars[i][j] <= 1)
 
 # Create problem instance
 problem = cp.Problem(objective, constraints)
