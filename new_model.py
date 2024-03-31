@@ -3,9 +3,9 @@ import cvxpy as cp
 # Parameters
 num_people = 2
 num_slots = 3
-availability = [[1,0,1], [0,1,1]]
-preference = [[5,0,3], [0,2,1]]
-max_meetings = 1
+availability = [[1,0,1], [1,1,1]]
+preference = [[5,0,3], [5,2,1]]
+max_meetings = 2
 pref_rate = 1
 attendance_rate = 1
 
@@ -25,6 +25,9 @@ for i in range(num_people):
 attendance = 0 
 for j in range(num_slots):
     attendance = attendance + availability[i][j] * xvars[i][j]
+
+#Additional Meeting Penalty
+penalty = 0
 
 objective = cp.Maximize(pref_rate * pref + attendance_rate * attendance)
 
@@ -59,8 +62,8 @@ problem.solve()
 if problem.status == cp.OPTIMAL:
     print("Optimal solution found.")
     # Print solution variables if needed
-    # for var in svars:
-    #     print(var.value)
+    for var in svars:
+         print(var.value)
 else:
     print("Problem status:", problem.status)
 
