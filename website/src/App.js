@@ -1,8 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
-import HomePage from './components/HomePage.js';
 import HostPage from './components/HostPage.js';
-
+import HomePage from './components/HomePage.js';
 import Navbar from './components/Navbar.js';
 
 function App() {
